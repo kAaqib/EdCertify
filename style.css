@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    color: white;
+    flex-direction: column;
+    background: rgb(25,72,73);
+    background: linear-gradient(90deg, rgb(0, 0, 0) 15%, rgba(0,0,0,1) 100%);
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    padding: 20px;
+    background-color: rgb(31, 136, 136);
+}
+
+h1{
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn{
+    padding: 150px;
+    font-size: 50px;
+    background-color: rgb(168, 244, 244);
+    cursor: pointer;
+    border-radius: 3%;
+}
+
+#btns{
+    padding: 15px;
+    font-size: 20px;
+    background-color: rgb(168, 244, 244);
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+input{
+    padding: 20px;
+}
+
+.detbox {
+    align-items: center ;
+    background-color: rgb(31, 136, 136);
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    row-gap: 30px;
+}
+
+.detbox input {
+    width: 80%;
+}
+
+#imagehash {
+    font-weight: 500;
+}
+
+.imgsel {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.pastehash {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <h1>EdCertify</h1>
+    </div>
+    <div class="detbox">
+        <label for="logid">University Id</label>
+        <input type="text" id="logid">
+        <label for="logpin">Security Pin</label>
+        <input type="text" id="logpin">
+        <button class="btn" onclick="logVerify()" id="btns">Login</button>
+    </div>
+    <script src="func.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+</body>
+</html>
