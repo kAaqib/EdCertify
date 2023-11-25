@@ -1,3 +1,83 @@
+// Contract address and ABI (replace with your actual contract address and ABI)
+
+const contractAddress = '0x26c53822705E0C0314E1D0a79d7aE350c4F5B51b';
+const contractABI = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "certificateId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "certificateHash",
+				"type": "string"
+			}
+		],
+		"name": "CertificateHashStored",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "certificateId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "certificateHash",
+				"type": "string"
+			}
+		],
+		"name": "storeCertificateHash",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "certificateId",
+				"type": "uint256"
+			}
+		],
+		"name": "getStoredCertificateHash",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
 // Function to generate a 10-digit unique ID
 function generateUniqueId() {
     return Math.floor(Math.random() * 9000000000) + 1000000000;
@@ -83,85 +163,8 @@ async function regVerify() {
         await window.ethereum.enable();
 
         // Contract address and ABI (replace with your actual contract address and ABI)
-        const contractAddress = '0x05815741cFe0a9F6574F39a68C3983909725A360';
+        
         console.log('Contract Address:', contractAddress);
-
-        const contractABI = [
-            {
-                "inputs": [],
-                "stateMutability": "nonpayable",
-                "type": "constructor"
-            },
-            {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "CertificateHashStored",
-                "type": "event"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "storeCertificateHash",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getStoredCertificateHash",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "owner",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            }
-        ];
 
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(contractABI, contractAddress);
@@ -205,87 +208,7 @@ async function regVerify() {
             try {
                 // Request account access if needed
                 await window.ethereum.enable();
-
-                // Contract address and ABI (replace with your actual contract address and ABI)
-                const contractAddress = '0x05815741cFe0a9F6574F39a68C3983909725A360';
                 console.log('Contract Address:', contractAddress);
-
-                const contractABI = [
-                    {
-                        "inputs": [],
-                        "stateMutability": "nonpayable",
-                        "type": "constructor"
-                    },
-                    {
-                        "anonymous": false,
-                        "inputs": [
-                            {
-                                "indexed": false,
-                                "internalType": "uint256",
-                                "name": "certificateId",
-                                "type": "uint256"
-                            },
-                            {
-                                "indexed": false,
-                                "internalType": "string",
-                                "name": "certificateHash",
-                                "type": "string"
-                            }
-                        ],
-                        "name": "CertificateHashStored",
-                        "type": "event"
-                    },
-                    {
-                        "inputs": [
-                            {
-                                "internalType": "uint256",
-                                "name": "certificateId",
-                                "type": "uint256"
-                            },
-                            {
-                                "internalType": "string",
-                                "name": "certificateHash",
-                                "type": "string"
-                            }
-                        ],
-                        "name": "storeCertificateHash",
-                        "outputs": [],
-                        "stateMutability": "nonpayable",
-                        "type": "function"
-                    },
-                    {
-                        "inputs": [
-                            {
-                                "internalType": "uint256",
-                                "name": "certificateId",
-                                "type": "uint256"
-                            }
-                        ],
-                        "name": "getStoredCertificateHash",
-                        "outputs": [
-                            {
-                                "internalType": "string",
-                                "name": "",
-                                "type": "string"
-                            }
-                        ],
-                        "stateMutability": "view",
-                        "type": "function"
-                    },
-                    {
-                        "inputs": [],
-                        "name": "owner",
-                        "outputs": [
-                            {
-                                "internalType": "address",
-                                "name": "",
-                                "type": "address"
-                            }
-                        ],
-                        "stateMutability": "view",
-                        "type": "function"
-                    }
-                ];
 
                 const web3 = new Web3(window.ethereum);
                 const contract = new web3.eth.Contract(contractABI, contractAddress);
@@ -347,88 +270,7 @@ async function logVerify() {
     try {
         // Request account access if needed
         await window.ethereum.enable();
-
-        // Contract address and ABI (replace with your actual contract address and ABI)
-        const contractAddress = '0x05815741cFe0a9F6574F39a68C3983909725A360';
         console.log('Contract Address:', contractAddress);
-
-        const contractABI = [
-            {
-                "inputs": [],
-                "stateMutability": "nonpayable",
-                "type": "constructor"
-            },
-            {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "CertificateHashStored",
-                "type": "event"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "storeCertificateHash",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getStoredCertificateHash",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "owner",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            }
-        ];
-
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(contractABI, contractAddress);
         //console.log('Contract:', contract);
@@ -479,87 +321,8 @@ async function storeCertificate() {
     try {
         // Request account access if needed
         await window.ethereum.enable();
-
-        // Contract address and ABI (replace with your actual contract address and ABI)
-        const contractAddress = '0x05815741cFe0a9F6574F39a68C3983909725A360';
+        
         console.log('Contract Address:', contractAddress);
-
-        const contractABI = [
-            {
-                "inputs": [],
-                "stateMutability": "nonpayable",
-                "type": "constructor"
-            },
-            {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "CertificateHashStored",
-                "type": "event"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "storeCertificateHash",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getStoredCertificateHash",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "owner",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            }
-        ];
 
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(contractABI, contractAddress);
@@ -605,87 +368,7 @@ async function verifyCertificate() {
     try {
         // Request account access if needed
         await window.ethereum.enable();
-
-        // Contract address and ABI (replace with your actual contract address and ABI)
-        const contractAddress = '0x05815741cFe0a9F6574F39a68C3983909725A360';
         console.log('Contract Address:', contractAddress);
-
-        const contractABI = [
-            {
-                "inputs": [],
-                "stateMutability": "nonpayable",
-                "type": "constructor"
-            },
-            {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "CertificateHashStored",
-                "type": "event"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "certificateHash",
-                        "type": "string"
-                    }
-                ],
-                "name": "storeCertificateHash",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "certificateId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getStoredCertificateHash",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "owner",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            }
-        ];
 
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(contractABI, contractAddress);
